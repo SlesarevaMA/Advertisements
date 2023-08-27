@@ -9,19 +9,39 @@
 /* Begin PBXBuildFile section */
 		ABB398BD2A97DC7A000C81D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398BC2A97DC7A000C81D8 /* AppDelegate.swift */; };
 		ABB398BF2A97DC7A000C81D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398BE2A97DC7A000C81D8 /* SceneDelegate.swift */; };
-		ABB398C12A97DC7A000C81D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398C02A97DC7A000C81D8 /* ViewController.swift */; };
+		ABB398C12A97DC7A000C81D8 /* AdvertismentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398C02A97DC7A000C81D8 /* AdvertismentListViewController.swift */; };
 		ABB398C62A97DC7B000C81D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB398C52A97DC7B000C81D8 /* Assets.xcassets */; };
 		ABB398C92A97DC7B000C81D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB398C72A97DC7B000C81D8 /* LaunchScreen.storyboard */; };
+		ABB398D52A97E22A000C81D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398D42A97E22A000C81D8 /* NetworkManager.swift */; };
+		ABB398D72A97E6FB000C81D8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398D62A97E6FB000C81D8 /* Request.swift */; };
+		ABB398D92A991B88000C81D8 /* AdvertisementListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398D82A991B88000C81D8 /* AdvertisementListRequest.swift */; };
+		ABB398DC2A992B28000C81D8 /* AdvertismentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398DB2A992B28000C81D8 /* AdvertismentRequest.swift */; };
+		ABB398DE2A99338F000C81D8 /* AdvertismentListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398DD2A99338F000C81D8 /* AdvertismentListService.swift */; };
+		ABB398E02A993C2F000C81D8 /* AdvertisementsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398DF2A993C2F000C81D8 /* AdvertisementsDecoder.swift */; };
+		ABB398E32A993D86000C81D8 /* AdvertisementsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E22A993D86000C81D8 /* AdvertisementsListModel.swift */; };
+		ABB398E52A994206000C81D8 /* AdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E42A994206000C81D8 /* AdvertisementModel.swift */; };
+		ABB398E72A9B63D3000C81D8 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E62A9B63D3000C81D8 /* Presenter.swift */; };
+		ABB398E92A9B6496000C81D8 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E82A9B6496000C81D8 /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ABB398B92A97DC7A000C81D8 /* Advertisements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Advertisements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB398BC2A97DC7A000C81D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB398BE2A97DC7A000C81D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ABB398C02A97DC7A000C81D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ABB398C02A97DC7A000C81D8 /* AdvertismentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertismentListViewController.swift; sourceTree = "<group>"; };
 		ABB398C52A97DC7B000C81D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABB398C82A97DC7B000C81D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABB398CA2A97DC7B000C81D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABB398D42A97E22A000C81D8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		ABB398D62A97E6FB000C81D8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		ABB398D82A991B88000C81D8 /* AdvertisementListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListRequest.swift; sourceTree = "<group>"; };
+		ABB398DB2A992B28000C81D8 /* AdvertismentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertismentRequest.swift; sourceTree = "<group>"; };
+		ABB398DD2A99338F000C81D8 /* AdvertismentListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertismentListService.swift; sourceTree = "<group>"; };
+		ABB398DF2A993C2F000C81D8 /* AdvertisementsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsDecoder.swift; sourceTree = "<group>"; };
+		ABB398E22A993D86000C81D8 /* AdvertisementsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsListModel.swift; sourceTree = "<group>"; };
+		ABB398E42A994206000C81D8 /* AdvertisementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementModel.swift; sourceTree = "<group>"; };
+		ABB398E62A9B63D3000C81D8 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		ABB398E82A9B6496000C81D8 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +74,9 @@
 		ABB398BB2A97DC7A000C81D8 /* Advertisements */ = {
 			isa = PBXGroup;
 			children = (
-				ABB398C02A97DC7A000C81D8 /* ViewController.swift */,
+				ABB398D12A97E0A4000C81D8 /* Presentation */,
+				ABB398D22A97E114000C81D8 /* Service */,
+				ABB398D32A97E140000C81D8 /* Core */,
 				ABB398D02A97DF3E000C81D8 /* Supporting files */,
 			);
 			path = Advertisements;
@@ -70,6 +92,54 @@
 				ABB398CA2A97DC7B000C81D8 /* Info.plist */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		ABB398D12A97E0A4000C81D8 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				ABB398C02A97DC7A000C81D8 /* AdvertismentListViewController.swift */,
+				ABB398E62A9B63D3000C81D8 /* Presenter.swift */,
+				ABB398E82A9B6496000C81D8 /* DataSource.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		ABB398D22A97E114000C81D8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ABB398DD2A99338F000C81D8 /* AdvertismentListService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		ABB398D32A97E140000C81D8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				ABB398E12A993D47000C81D8 /* ApiModels */,
+				ABB398DA2A99272F000C81D8 /* Requests */,
+				ABB398D42A97E22A000C81D8 /* NetworkManager.swift */,
+				ABB398DF2A993C2F000C81D8 /* AdvertisementsDecoder.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		ABB398DA2A99272F000C81D8 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				ABB398D62A97E6FB000C81D8 /* Request.swift */,
+				ABB398D82A991B88000C81D8 /* AdvertisementListRequest.swift */,
+				ABB398DB2A992B28000C81D8 /* AdvertismentRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		ABB398E12A993D47000C81D8 /* ApiModels */ = {
+			isa = PBXGroup;
+			children = (
+				ABB398E22A993D86000C81D8 /* AdvertisementsListModel.swift */,
+				ABB398E42A994206000C81D8 /* AdvertisementModel.swift */,
+			);
+			path = ApiModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +212,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB398C12A97DC7A000C81D8 /* ViewController.swift in Sources */,
+				ABB398D52A97E22A000C81D8 /* NetworkManager.swift in Sources */,
+				ABB398E32A993D86000C81D8 /* AdvertisementsListModel.swift in Sources */,
+				ABB398E02A993C2F000C81D8 /* AdvertisementsDecoder.swift in Sources */,
+				ABB398E92A9B6496000C81D8 /* DataSource.swift in Sources */,
+				ABB398C12A97DC7A000C81D8 /* AdvertismentListViewController.swift in Sources */,
+				ABB398D72A97E6FB000C81D8 /* Request.swift in Sources */,
+				ABB398E52A994206000C81D8 /* AdvertisementModel.swift in Sources */,
+				ABB398E72A9B63D3000C81D8 /* Presenter.swift in Sources */,
+				ABB398DE2A99338F000C81D8 /* AdvertismentListService.swift in Sources */,
 				ABB398BD2A97DC7A000C81D8 /* AppDelegate.swift in Sources */,
 				ABB398BF2A97DC7A000C81D8 /* SceneDelegate.swift in Sources */,
+				ABB398DC2A992B28000C81D8 /* AdvertismentRequest.swift in Sources */,
+				ABB398D92A991B88000C81D8 /* AdvertisementListRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
