@@ -16,8 +16,7 @@ extension Request {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "www.avito.st"
-        urlComponents.path = "s"
-        urlComponents.path += "interns-ios"
+        urlComponents.path = "/s/interns-ios"
         
         return urlComponents
     }

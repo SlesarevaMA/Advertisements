@@ -11,7 +11,7 @@ struct AdvertisementListRequest: Request {
     var urlRequest: URLRequest {
         var urlComponents = baseUrlComponents
         
-        urlComponents.path += "main-page.json"
+        urlComponents.path += "/main-page.json"
         
         guard let url = urlComponents.url else {
             fatalError("Unable to create advertisement list url")

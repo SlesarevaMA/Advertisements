@@ -18,10 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let dataSource = Adver
+        let networkManager = NetworkManagerImpl()
+        let decoder = AdvertisementsDecoder()
+        let service = AdvertisementListServiceImpl(networkManager: networkManager, decoder: decoder)
+        
+        let dataSource = AdvertisementListDataSourceImpl()
+        let presenter = AdvertisementListPresenter(advertisementListService: service, dataSource: dataSource)
+        let view = AdvertisementListViewController(output: presenter)
+        presenter.view = view
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = AdvertisementListViewController()
+        window?.rootViewController = view
         window?.makeKeyAndVisible()
     }
 }
