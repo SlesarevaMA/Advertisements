@@ -8,6 +8,12 @@
 import UIKit
 import SnapKit
 
+private enum Constants {
+    static let columnsNumber: CGFloat = 2
+    static let spacing: CGFloat = 12
+    static let aspectRatio: CGFloat = 1.75
+}
+
 protocol AdvertisementListViewInput: AnyObject {
     func setDataSource(_ dataSource: AdvertisementListDataSource)
 }
@@ -35,13 +41,20 @@ final class AdvertisementListViewController: UIViewController {
         output.viewDidLoad()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     private func setup() {
+        prepareCollectionView()
         configureViews()
         addConstraints()
-        prepareCollectionView()
     }
     
     private func prepareCollectionView() {
+        collectionView.delegate = self
         collectionView.register(cell: AdretisementsListCell.self)
     }
     
@@ -53,7 +66,7 @@ final class AdvertisementListViewController: UIViewController {
     
     private func addConstraints() {
         collectionView.snp.makeConstraints {
-            $0.edges.equalTo(view.snp.margins)
+            $0.edges.equalToSuperview()
         }
     }
 }
@@ -63,5 +76,33 @@ final class AdvertisementListViewController: UIViewController {
 extension AdvertisementListViewController: AdvertisementListViewInput {
     func setDataSource(_ dataSource: AdvertisementListDataSource) {
         collectionView.dataSource = dataSource
+    }
+}
+
+extension AdvertisementListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let colums = Constants.columnsNumber
+        let totalHorizontalSpacing = (colums + 1) * Constants.spacing
+        
+        let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / colums
+        let itemSize = CGSize(width: itemWidth, height: itemWidth * Constants.aspectRatio)
+        
+        return itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: Constants.spacing, bottom: 0, right: Constants.spacing)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return Constants.spacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return Constants.spacing
     }
 }

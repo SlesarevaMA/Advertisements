@@ -12,8 +12,16 @@ import SnapKit
 private enum Metrics {
     static let verticalSpacing: CGFloat = 8
     
-    static let font: UIFont = .systemFont(ofSize: 12)
-    static let textColor: UIColor = .systemGray3
+    enum Font {
+        static let title: UIFont = .systemFont(ofSize: 17, weight: .semibold)
+        static let price: UIFont = .boldSystemFont(ofSize: 19)
+        static let additional: UIFont = .systemFont(ofSize: 15)
+    }
+    
+    enum Color {
+        static let additional: UIColor = .systemGray
+        static let mainText: UIColor = .white
+    }
 }
 
 final class AdretisementsListCell: UICollectionViewCell {
@@ -25,6 +33,8 @@ final class AdretisementsListCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -54,41 +64,47 @@ final class AdretisementsListCell: UICollectionViewCell {
             $0.leading.equalToSuperview()
             $0.top.equalToSuperview()
             $0.trailing.equalToSuperview()
+            $0.width.equalTo(imageView.snp.height)
         }
         
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalTo(imageView.snp.bottom).offset(Metrics.verticalSpacing)
+            $0.trailing.lessThanOrEqualToSuperview()
         }
         
         priceLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalTo(titleLabel.snp.bottom).offset(Metrics.verticalSpacing)
+            $0.trailing.lessThanOrEqualToSuperview()
         }
         
         locationLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalTo(priceLabel.snp.bottom).offset(Metrics.verticalSpacing)
+            $0.trailing.lessThanOrEqualToSuperview()
         }
         
         dateLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalTo(locationLabel.snp.bottom).offset(Metrics.verticalSpacing)
             $0.bottom.equalToSuperview()
+            $0.trailing.lessThanOrEqualToSuperview()
         }
     }
     
     private func configureViews() {
-        titleLabel.textColor = Metrics.textColor
-        titleLabel.font = Metrics.font
+        titleLabel.textColor = Metrics.Color.mainText
+        titleLabel.font = Metrics.Font.title
+        titleLabel.numberOfLines = 2
         
-        priceLabel.textColor = Metrics.textColor
-        priceLabel.font = Metrics.font
+        priceLabel.textColor = Metrics.Color.mainText
+        priceLabel.font = Metrics.Font.price
 
-        locationLabel.textColor = Metrics.textColor
-        locationLabel.font = Metrics.font
+        locationLabel.textColor = Metrics.Color.additional
+        locationLabel.font = Metrics.Font.additional
 
-        dateLabel.textColor = Metrics.textColor
-        dateLabel.font = Metrics.font
+        dateLabel.textColor = Metrics.Color.additional
+        dateLabel.font = Metrics.Font.additional
     }
 }

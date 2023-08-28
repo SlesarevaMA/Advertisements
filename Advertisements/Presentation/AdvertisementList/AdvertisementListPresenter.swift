@@ -46,7 +46,6 @@ final class AdvertisementListPresenter {
             }
         }
     }
-
 }
 
 // MARK: - AdvertisementListViewOutput
