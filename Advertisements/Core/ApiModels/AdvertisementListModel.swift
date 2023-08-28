@@ -1,11 +1,11 @@
 //
-//  AdvertisementModel.swift
+//  AdvertisementListModel.swift
 //  Advertisements
 //
 //  Created by Margarita Slesareva on 25.08.2023.
 //
 
-struct AdvertisementModel: Decodable {
+struct AdvertisementListModel: Decodable {
     let id: String
     let title: String
     let price: String

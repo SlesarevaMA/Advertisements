@@ -9,26 +9,33 @@
 /* Begin PBXBuildFile section */
 		ABB398BD2A97DC7A000C81D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398BC2A97DC7A000C81D8 /* AppDelegate.swift */; };
 		ABB398BF2A97DC7A000C81D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398BE2A97DC7A000C81D8 /* SceneDelegate.swift */; };
-		ABB398C12A97DC7A000C81D8 /* AdvertismentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398C02A97DC7A000C81D8 /* AdvertismentListViewController.swift */; };
+		ABB398C12A97DC7A000C81D8 /* AdvertisementListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398C02A97DC7A000C81D8 /* AdvertisementListViewController.swift */; };
 		ABB398C62A97DC7B000C81D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB398C52A97DC7B000C81D8 /* Assets.xcassets */; };
 		ABB398C92A97DC7B000C81D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB398C72A97DC7B000C81D8 /* LaunchScreen.storyboard */; };
 		ABB398D52A97E22A000C81D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398D42A97E22A000C81D8 /* NetworkManager.swift */; };
 		ABB398D72A97E6FB000C81D8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398D62A97E6FB000C81D8 /* Request.swift */; };
 		ABB398D92A991B88000C81D8 /* AdvertisementListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398D82A991B88000C81D8 /* AdvertisementListRequest.swift */; };
 		ABB398DC2A992B28000C81D8 /* AdvertismentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398DB2A992B28000C81D8 /* AdvertismentRequest.swift */; };
-		ABB398DE2A99338F000C81D8 /* AdvertismentListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398DD2A99338F000C81D8 /* AdvertismentListService.swift */; };
+		ABB398DE2A99338F000C81D8 /* AdvertisementListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398DD2A99338F000C81D8 /* AdvertisementListService.swift */; };
 		ABB398E02A993C2F000C81D8 /* AdvertisementsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398DF2A993C2F000C81D8 /* AdvertisementsDecoder.swift */; };
-		ABB398E32A993D86000C81D8 /* AdvertisementsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E22A993D86000C81D8 /* AdvertisementsListModel.swift */; };
-		ABB398E52A994206000C81D8 /* AdvertisementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E42A994206000C81D8 /* AdvertisementModel.swift */; };
+		ABB398E32A993D86000C81D8 /* AdvertisementsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E22A993D86000C81D8 /* AdvertisementsModel.swift */; };
+		ABB398E52A994206000C81D8 /* AdvertisementListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E42A994206000C81D8 /* AdvertisementListModel.swift */; };
 		ABB398E72A9B63D3000C81D8 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E62A9B63D3000C81D8 /* Presenter.swift */; };
 		ABB398E92A9B6496000C81D8 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398E82A9B6496000C81D8 /* DataSource.swift */; };
+		ABB398EC2A9B70C7000C81D8 /* AdretisementsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398EB2A9B70C7000C81D8 /* AdretisementsListCell.swift */; };
+		ABB398EF2A9B7120000C81D8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398EE2A9B7120000C81D8 /* Identifiable.swift */; };
+		ABB398F12A9B7279000C81D8 /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398F02A9B7279000C81D8 /* UICollectionViewCell+.swift */; };
+		ABB398F32A9B72BC000C81D8 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398F22A9B72BC000C81D8 /* UICollectionView+.swift */; };
+		ABB398F52A9BAAAE000C81D8 /* AdvertesementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398F42A9BAAAE000C81D8 /* AdvertesementListViewModel.swift */; };
+		ABB398F82A9BB32D000C81D8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = ABB398F72A9BB32D000C81D8 /* SDWebImage */; };
+		ABB398FB2A9BB3BB000C81D8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ABB398FA2A9BB3BB000C81D8 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ABB398B92A97DC7A000C81D8 /* Advertisements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Advertisements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB398BC2A97DC7A000C81D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB398BE2A97DC7A000C81D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ABB398C02A97DC7A000C81D8 /* AdvertismentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertismentListViewController.swift; sourceTree = "<group>"; };
+		ABB398C02A97DC7A000C81D8 /* AdvertisementListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListViewController.swift; sourceTree = "<group>"; };
 		ABB398C52A97DC7B000C81D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABB398C82A97DC7B000C81D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABB398CA2A97DC7B000C81D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,12 +43,17 @@
 		ABB398D62A97E6FB000C81D8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		ABB398D82A991B88000C81D8 /* AdvertisementListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListRequest.swift; sourceTree = "<group>"; };
 		ABB398DB2A992B28000C81D8 /* AdvertismentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertismentRequest.swift; sourceTree = "<group>"; };
-		ABB398DD2A99338F000C81D8 /* AdvertismentListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertismentListService.swift; sourceTree = "<group>"; };
+		ABB398DD2A99338F000C81D8 /* AdvertisementListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListService.swift; sourceTree = "<group>"; };
 		ABB398DF2A993C2F000C81D8 /* AdvertisementsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsDecoder.swift; sourceTree = "<group>"; };
-		ABB398E22A993D86000C81D8 /* AdvertisementsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsListModel.swift; sourceTree = "<group>"; };
-		ABB398E42A994206000C81D8 /* AdvertisementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementModel.swift; sourceTree = "<group>"; };
+		ABB398E22A993D86000C81D8 /* AdvertisementsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsModel.swift; sourceTree = "<group>"; };
+		ABB398E42A994206000C81D8 /* AdvertisementListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementListModel.swift; sourceTree = "<group>"; };
 		ABB398E62A9B63D3000C81D8 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		ABB398E82A9B6496000C81D8 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		ABB398EB2A9B70C7000C81D8 /* AdretisementsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdretisementsListCell.swift; sourceTree = "<group>"; };
+		ABB398EE2A9B7120000C81D8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		ABB398F02A9B7279000C81D8 /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
+		ABB398F22A9B72BC000C81D8 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		ABB398F42A9BAAAE000C81D8 /* AdvertesementListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertesementListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB398F82A9BB32D000C81D8 /* SDWebImage in Frameworks */,
+				ABB398FB2A9BB3BB000C81D8 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +91,7 @@
 				ABB398D12A97E0A4000C81D8 /* Presentation */,
 				ABB398D22A97E114000C81D8 /* Service */,
 				ABB398D32A97E140000C81D8 /* Core */,
+				ABB398ED2A9B7104000C81D8 /* Helpers */,
 				ABB398D02A97DF3E000C81D8 /* Supporting files */,
 			);
 			path = Advertisements;
@@ -97,9 +112,11 @@
 		ABB398D12A97E0A4000C81D8 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				ABB398C02A97DC7A000C81D8 /* AdvertismentListViewController.swift */,
+				ABB398EA2A9B70A6000C81D8 /* Cells */,
+				ABB398C02A97DC7A000C81D8 /* AdvertisementListViewController.swift */,
 				ABB398E62A9B63D3000C81D8 /* Presenter.swift */,
 				ABB398E82A9B6496000C81D8 /* DataSource.swift */,
+				ABB398F42A9BAAAE000C81D8 /* AdvertesementListViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -107,7 +124,7 @@
 		ABB398D22A97E114000C81D8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				ABB398DD2A99338F000C81D8 /* AdvertismentListService.swift */,
+				ABB398DD2A99338F000C81D8 /* AdvertisementListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -136,10 +153,28 @@
 		ABB398E12A993D47000C81D8 /* ApiModels */ = {
 			isa = PBXGroup;
 			children = (
-				ABB398E22A993D86000C81D8 /* AdvertisementsListModel.swift */,
-				ABB398E42A994206000C81D8 /* AdvertisementModel.swift */,
+				ABB398E22A993D86000C81D8 /* AdvertisementsModel.swift */,
+				ABB398E42A994206000C81D8 /* AdvertisementListModel.swift */,
 			);
 			path = ApiModels;
+			sourceTree = "<group>";
+		};
+		ABB398EA2A9B70A6000C81D8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ABB398EB2A9B70C7000C81D8 /* AdretisementsListCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		ABB398ED2A9B7104000C81D8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ABB398EE2A9B7120000C81D8 /* Identifiable.swift */,
+				ABB398F02A9B7279000C81D8 /* UICollectionViewCell+.swift */,
+				ABB398F22A9B72BC000C81D8 /* UICollectionView+.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +193,10 @@
 			dependencies = (
 			);
 			name = Advertisements;
+			packageProductDependencies = (
+				ABB398F72A9BB32D000C81D8 /* SDWebImage */,
+				ABB398FA2A9BB3BB000C81D8 /* SnapKit */,
+			);
 			productName = Advertisements;
 			productReference = ABB398B92A97DC7A000C81D8 /* Advertisements.app */;
 			productType = "com.apple.product-type.application";
@@ -186,6 +225,10 @@
 				Base,
 			);
 			mainGroup = ABB398B02A97DC7A000C81D8;
+			packageReferences = (
+				ABB398F62A9BB32D000C81D8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				ABB398F92A9BB3BB000C81D8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = ABB398BA2A97DC7A000C81D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -212,18 +255,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB398F52A9BAAAE000C81D8 /* AdvertesementListViewModel.swift in Sources */,
 				ABB398D52A97E22A000C81D8 /* NetworkManager.swift in Sources */,
-				ABB398E32A993D86000C81D8 /* AdvertisementsListModel.swift in Sources */,
+				ABB398E32A993D86000C81D8 /* AdvertisementsModel.swift in Sources */,
 				ABB398E02A993C2F000C81D8 /* AdvertisementsDecoder.swift in Sources */,
 				ABB398E92A9B6496000C81D8 /* DataSource.swift in Sources */,
-				ABB398C12A97DC7A000C81D8 /* AdvertismentListViewController.swift in Sources */,
+				ABB398EC2A9B70C7000C81D8 /* AdretisementsListCell.swift in Sources */,
+				ABB398C12A97DC7A000C81D8 /* AdvertisementListViewController.swift in Sources */,
+				ABB398F12A9B7279000C81D8 /* UICollectionViewCell+.swift in Sources */,
 				ABB398D72A97E6FB000C81D8 /* Request.swift in Sources */,
-				ABB398E52A994206000C81D8 /* AdvertisementModel.swift in Sources */,
+				ABB398E52A994206000C81D8 /* AdvertisementListModel.swift in Sources */,
+				ABB398F32A9B72BC000C81D8 /* UICollectionView+.swift in Sources */,
 				ABB398E72A9B63D3000C81D8 /* Presenter.swift in Sources */,
-				ABB398DE2A99338F000C81D8 /* AdvertismentListService.swift in Sources */,
+				ABB398DE2A99338F000C81D8 /* AdvertisementListService.swift in Sources */,
 				ABB398BD2A97DC7A000C81D8 /* AppDelegate.swift in Sources */,
 				ABB398BF2A97DC7A000C81D8 /* SceneDelegate.swift in Sources */,
 				ABB398DC2A992B28000C81D8 /* AdvertismentRequest.swift in Sources */,
+				ABB398EF2A9B7120000C81D8 /* Identifiable.swift in Sources */,
 				ABB398D92A991B88000C81D8 /* AdvertisementListRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +478,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ABB398F62A9BB32D000C81D8 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		ABB398F92A9BB3BB000C81D8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABB398F72A9BB32D000C81D8 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABB398F62A9BB32D000C81D8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		ABB398FA2A9BB3BB000C81D8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABB398F92A9BB3BB000C81D8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ABB398B12A97DC7A000C81D8 /* Project object */;
 }

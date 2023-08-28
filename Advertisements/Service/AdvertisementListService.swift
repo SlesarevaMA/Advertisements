@@ -1,5 +1,5 @@
 //
-//  AdvertismentListService.swift
+//  AdvertisementListService.swift
 //  Advertisements
 //
 //  Created by Margarita Slesareva on 25.08.2023.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol AdvertismentListService {
-    func requestAdvertismentList(completion: @escaping ([AdvertisementModel]) -> Void)
+protocol AdvertisementListService {
+    func requestAdvertismentList(completion: @escaping ([AdvertisementListModel]) -> Void)
 }
 
-final class AdvertismentListServiceImpl: AdvertismentListService {
+final class AdvertisementListServiceImpl: AdvertisementListService {
     private let networkManager: NetworkManager
     private let decoder: AdvertisementsDecoder
     
@@ -20,14 +20,14 @@ final class AdvertismentListServiceImpl: AdvertismentListService {
         self.decoder = decoder
     }
     
-    func requestAdvertismentList(completion: @escaping ([AdvertisementModel]) -> Void) {
+    func requestAdvertismentList(completion: @escaping ([AdvertisementListModel]) -> Void) {
         let advertisementListRequest = AdvertisementListRequest()
         
         networkManager.sendRequest(request: advertisementListRequest) { result in
             switch result {
             case .success(let data):
                 do {
-                    let advertisementsListModel = try self.decoder.decode(AdvertisementsListModel.self, from: data)
+                    let advertisementsListModel = try self.decoder.decode(AdvertisementsModel.self, from: data)
                     completion(advertisementsListModel.advertisements)
                 } catch {
                     print(error)
