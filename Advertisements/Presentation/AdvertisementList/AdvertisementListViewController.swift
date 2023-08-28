@@ -79,6 +79,8 @@ extension AdvertisementListViewController: AdvertisementListViewInput {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
+
 extension AdvertisementListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
@@ -96,13 +98,5 @@ extension AdvertisementListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: Constants.spacing, bottom: 0, right: Constants.spacing)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return Constants.spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return Constants.spacing
     }
 }

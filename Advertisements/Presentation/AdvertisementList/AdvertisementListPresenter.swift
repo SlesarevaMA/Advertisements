@@ -18,6 +18,21 @@ final class AdvertisementListPresenter {
     private let advertisementListService: AdvertisementListService
     private let dataSource: AdvertisementListDataSource
     
+    private let inputDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        return formatter
+    }()
+    
+    private let outputDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMM"
+        formatter.locale = Locale(identifier: "ru_RUS")
+        
+        return formatter
+    }()
+    
     init(advertisementListService: AdvertisementListService, dataSource: AdvertisementListDataSource) {
         self.advertisementListService = advertisementListService
         self.dataSource = dataSource
@@ -34,16 +49,33 @@ final class AdvertisementListPresenter {
                     continue
                 }
                 
+                let date = self.convertedDate(string: adverisement.createdDate)
+        
                 self.dataSource.advertesementListCells.append(
                     AdvertesementListViewModel(
                         title: adverisement.title,
                         price: adverisement.price,
                         location: adverisement.location,
                         imageUrl: imageUrl,
-                        date: adverisement.createdDate
+                        date: date
                     )
                 )
             }
+        }
+    }
+    
+    private func convertedDate(string: String) -> String{
+        guard let date = self.inputDateFormatter.date(from: string) else {
+            return ""
+        }
+        
+        switch date {
+        case Date():
+            return "Сегодня"
+        case Calendar.current.date(byAdding: .day, value: -1, to: Date()):
+            return "Вчера"
+        default:
+            return outputDateFormatter.string(from: date)
         }
     }
 }

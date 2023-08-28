@@ -11,6 +11,7 @@ import SnapKit
 
 private enum Metrics {
     static let verticalSpacing: CGFloat = 8
+    static let cornerRadius: CGFloat = 10
     
     enum Font {
         static let title: UIFont = .systemFont(ofSize: 17, weight: .semibold)
@@ -94,6 +95,9 @@ final class AdretisementsListCell: UICollectionViewCell {
     }
     
     private func configureViews() {
+        imageView.layer.cornerRadius = Metrics.cornerRadius
+        imageView.layer.masksToBounds = true
+
         titleLabel.textColor = Metrics.Color.mainText
         titleLabel.font = Metrics.Font.title
         titleLabel.numberOfLines = 2
