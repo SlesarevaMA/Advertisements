@@ -8,6 +8,7 @@
 import Foundation
 
 struct AdvertesementListViewModel {
+    let id: Int
     let title: String
     let price: String
     let location: String

@@ -16,12 +16,15 @@ private enum Constants {
 
 protocol AdvertisementListViewInput: AnyObject {
     func setDataSource(_ dataSource: AdvertisementListDataSource)
+    func reloadData()
     func showAlert(title: String, completion: @escaping () -> Void)
 }
 
 final class AdvertisementListViewController: UIViewController {
 
     private let output: AdvertisementListViewOutput
+    private var detail: Detail?
+    
     private let collectionViewLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     
@@ -48,21 +51,33 @@ final class AdvertisementListViewController: UIViewController {
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        prepareCollectionViewLayout()
+    }
+    
     private func setup() {
         prepareCollectionView()
-        configureViews()
         addConstraints()
     }
     
     private func prepareCollectionView() {
+        view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.register(cell: AdretisementsListCell.self)
+        collectionView.backgroundColor = .black
     }
     
-    private func configureViews() {
-        view.addSubview(collectionView)
-    
-        collectionView.backgroundColor = .black
+    private func prepareCollectionViewLayout() {
+        let colums = Constants.columnsNumber
+        let totalHorizontalSpacing = (colums + 1) * Constants.spacing
+        
+        let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / colums
+        let itemSize = CGSize(width: itemWidth, height: itemWidth * Constants.aspectRatio)
+        collectionViewLayout.itemSize = itemSize
+        collectionViewLayout.minimumInteritemSpacing = Constants.spacing
+        collectionViewLayout.sectionInset = UIEdgeInsets(horizontal: Constants.spacing)
     }
     
     private func addConstraints() {
@@ -90,28 +105,13 @@ extension AdvertisementListViewController: AdvertisementListViewInput {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension AdvertisementListViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        let colums = Constants.columnsNumber
-        let totalHorizontalSpacing = (colums + 1) * Constants.spacing
-        
-        let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / colums
-        let itemSize = CGSize(width: itemWidth, height: itemWidth * Constants.aspectRatio)
-        
-        return itemSize
+extension AdvertisementListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        output.cellSelected(at: indexPath.item)
     }
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        insetForSectionAt section: Int
-    ) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: Constants.spacing, bottom: 0, right: Constants.spacing)
+    func reloadData() {
+        collectionView.reloadData()
     }
 }

@@ -7,13 +7,13 @@
 
 enum RequestError: Error {
     case download
-    case parsError
+    case parse
     
-    var title: String {
+    var description: String {
         switch self {
         case .download:
             return "Download fail"
-        case .parsError:
+        case .parse:
             return "Parse fail"
         }
     }

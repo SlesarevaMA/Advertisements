@@ -9,6 +9,7 @@ import Foundation
 
 protocol AdvertisementListViewOutput: AnyObject {
     func viewDidLoad()
+    func cellSelected(at index: Int)
 }
 
 final class AdvertisementListPresenter {
@@ -43,33 +44,39 @@ final class AdvertisementListPresenter {
     }
     
     private func requestAdvertisemets() {
-        advertisementListService.requestAdvertismentList { result in
+        advertisementListService.requestAdvertismentList { [weak self] result in
+            guard let self else { return }
+            
             switch result {
             case .success(let adverisements):
-                for adverisement in adverisements {
-                    guard let imageUrl = URL(string: adverisement.imageUrl) else {
-                        continue
-                    }
-                    
-                    let date = self.convertedDate(string: adverisement.createdDate)
-            
-                    self.dataSource.advertesementListCells.append(
-                        AdvertesementListViewModel(
-                            title: adverisement.title,
-                            price: adverisement.price,
-                            location: adverisement.location,
-                            imageUrl: imageUrl,
-                            date: date
-                        )
-                    )
-                }
+                self.processAdverisements(adverisements)
             case .failure(let error):
                 self.handleError(error)
             }
         }
     }
     
-    private func convertedDate(string: String) -> String{
+    private func processAdverisements(_ adverisements: [AdvertisementListModel]) {
+        let viewModels = adverisements.map { model in
+            let date = self.convertedDate(string: model.createdDate)
+            
+            return AdvertesementListViewModel(
+                id: Int(model.id) ?? -1,
+                title: model.title,
+                price: model.price,
+                location: model.location,
+                imageUrl: model.imageUrl,
+                date: date
+            )
+        }
+        
+        DispatchQueue.main.async {
+            self.dataSource.advertesementListViewModels = viewModels
+            self.view?.reloadData()
+        }
+    }
+    
+    private func convertedDate(string: String) -> String {
         guard let date = self.inputDateFormatter.date(from: string) else {
             return ""
         }
@@ -85,9 +92,11 @@ final class AdvertisementListPresenter {
     }
     
     private func handleError(_ error: RequestError) {
-        view?.showAlert(title: error.title, completion: {
-            self.requestAdvertisemets()
-        })
+        DispatchQueue.main.async {
+            self.view?.showAlert(title: error.description, completion: {
+                self.requestAdvertisemets()
+            })
+        }
     }
 }
 
@@ -98,4 +107,10 @@ extension AdvertisementListPresenter: AdvertisementListViewOutput {
         setDataSource()
         requestAdvertisemets()
     }
+    
+    func cellSelected(at index: Int) {
+        let viewModel = dataSource.advertesementListViewModels[index]
+        print(viewModel.title)
+    }
+    
 }
