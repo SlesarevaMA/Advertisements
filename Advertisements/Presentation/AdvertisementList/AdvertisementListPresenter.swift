@@ -43,23 +43,28 @@ final class AdvertisementListPresenter {
     }
     
     private func requestAdvertisemets() {
-        advertisementListService.requestAdvertismentList { adverisementArray in
-            for adverisement in adverisementArray {
-                guard let imageUrl = URL(string: adverisement.imageUrl) else {
-                    continue
-                }
-                
-                let date = self.convertedDate(string: adverisement.createdDate)
-        
-                self.dataSource.advertesementListCells.append(
-                    AdvertesementListViewModel(
-                        title: adverisement.title,
-                        price: adverisement.price,
-                        location: adverisement.location,
-                        imageUrl: imageUrl,
-                        date: date
+        advertisementListService.requestAdvertismentList { result in
+            switch result {
+            case .success(let adverisements):
+                for adverisement in adverisements {
+                    guard let imageUrl = URL(string: adverisement.imageUrl) else {
+                        continue
+                    }
+                    
+                    let date = self.convertedDate(string: adverisement.createdDate)
+            
+                    self.dataSource.advertesementListCells.append(
+                        AdvertesementListViewModel(
+                            title: adverisement.title,
+                            price: adverisement.price,
+                            location: adverisement.location,
+                            imageUrl: imageUrl,
+                            date: date
+                        )
                     )
-                )
+                }
+            case .failure(let error):
+                self.handleError(error)
             }
         }
     }
@@ -77,6 +82,12 @@ final class AdvertisementListPresenter {
         default:
             return outputDateFormatter.string(from: date)
         }
+    }
+    
+    private func handleError(_ error: RequestError) {
+        view?.showAlert(title: error.title, completion: {
+            self.requestAdvertisemets()
+        })
     }
 }
 

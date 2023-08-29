@@ -29,6 +29,7 @@
 		ABB398F52A9BAAAE000C81D8 /* AdvertesementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398F42A9BAAAE000C81D8 /* AdvertesementListViewModel.swift */; };
 		ABB398F82A9BB32D000C81D8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = ABB398F72A9BB32D000C81D8 /* SDWebImage */; };
 		ABB398FB2A9BB3BB000C81D8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ABB398FA2A9BB3BB000C81D8 /* SnapKit */; };
+		ABB399002A9D0529000C81D8 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398FF2A9D0529000C81D8 /* RequestError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		ABB398F02A9B7279000C81D8 /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		ABB398F22A9B72BC000C81D8 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		ABB398F42A9BAAAE000C81D8 /* AdvertesementListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertesementListViewModel.swift; sourceTree = "<group>"; };
+		ABB398FF2A9D0529000C81D8 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				ABB398DA2A99272F000C81D8 /* Requests */,
 				ABB398D42A97E22A000C81D8 /* NetworkManager.swift */,
 				ABB398DF2A993C2F000C81D8 /* AdvertisementsDecoder.swift */,
+				ABB398FF2A9D0529000C81D8 /* RequestError.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				ABB398E72A9B63D3000C81D8 /* AdvertisementListPresenter.swift in Sources */,
 				ABB398DE2A99338F000C81D8 /* AdvertisementListService.swift in Sources */,
 				ABB398BD2A97DC7A000C81D8 /* AppDelegate.swift in Sources */,
+				ABB399002A9D0529000C81D8 /* RequestError.swift in Sources */,
 				ABB398BF2A97DC7A000C81D8 /* SceneDelegate.swift in Sources */,
 				ABB398DC2A992B28000C81D8 /* AdvertismentRequest.swift in Sources */,
 				ABB398EF2A9B7120000C81D8 /* Identifiable.swift in Sources */,

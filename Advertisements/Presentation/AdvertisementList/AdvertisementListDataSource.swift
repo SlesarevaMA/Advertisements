@@ -8,18 +8,18 @@
 import UIKit
 
 protocol AdvertisementListDataSource: UICollectionViewDataSource {
-    var advertesementListCells: [AdvertesementListViewModel] { get set }
+    var advertesementListViewModels: [AdvertesementListViewModel] { get set }
 }
 
 final class AdvertisementListDataSourceImpl: NSObject {
-    var advertesementListCells = [AdvertesementListViewModel]()
+    var advertesementListViewModels = [AdvertesementListViewModel]()
 }
 
 // MARK: - DataSource
 
 extension AdvertisementListDataSourceImpl: AdvertisementListDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return advertesementListCells.count
+        return advertesementListViewModels.count
     }
     
     func collectionView(
@@ -27,7 +27,7 @@ extension AdvertisementListDataSourceImpl: AdvertisementListDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell: AdretisementsListCell = collectionView.dequeReusableCell(for: indexPath)
-        let model = advertesementListCells[indexPath.item]
+        let model = advertesementListViewModels[indexPath.item]
         
         cell.configure(with: model)
         

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AdvertisementListService {
-    func requestAdvertismentList(completion: @escaping ([AdvertisementListModel]) -> Void)
+    func requestAdvertismentList(completion: @escaping (Result<[AdvertisementListModel], RequestError>) -> Void)
 }
 
 final class AdvertisementListServiceImpl: AdvertisementListService {
@@ -20,7 +20,7 @@ final class AdvertisementListServiceImpl: AdvertisementListService {
         self.decoder = decoder
     }
     
-    func requestAdvertismentList(completion: @escaping ([AdvertisementListModel]) -> Void) {
+    func requestAdvertismentList(completion: @escaping (Result<[AdvertisementListModel], RequestError>) -> Void) {
         let advertisementListRequest = AdvertisementListRequest()
         
         networkManager.sendRequest(request: advertisementListRequest) { result in
@@ -28,12 +28,12 @@ final class AdvertisementListServiceImpl: AdvertisementListService {
             case .success(let data):
                 do {
                     let advertisementsListModel = try self.decoder.decode(AdvertisementsModel.self, from: data)
-                    completion(advertisementsListModel.advertisements)
+                    completion(.success(advertisementsListModel.advertisements))
                 } catch {
-                    print(error)
+                    completion(.failure(.parsError))
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .failure:
+                completion(.failure(.download))
             }
         }
     }

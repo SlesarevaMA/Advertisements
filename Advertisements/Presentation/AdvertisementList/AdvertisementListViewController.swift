@@ -16,6 +16,7 @@ private enum Constants {
 
 protocol AdvertisementListViewInput: AnyObject {
     func setDataSource(_ dataSource: AdvertisementListDataSource)
+    func showAlert(title: String, completion: @escaping () -> Void)
 }
 
 final class AdvertisementListViewController: UIViewController {
@@ -77,6 +78,16 @@ extension AdvertisementListViewController: AdvertisementListViewInput {
     func setDataSource(_ dataSource: AdvertisementListDataSource) {
         collectionView.dataSource = dataSource
     }
+    
+    func showAlert(title: String, completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Попробуйте ещё", style: .default) { _ in
+            completion()
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -96,7 +107,11 @@ extension AdvertisementListViewController: UICollectionViewDelegateFlowLayout {
         return itemSize
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: Constants.spacing, bottom: 0, right: Constants.spacing)
     }
 }

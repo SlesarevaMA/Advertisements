@@ -8,18 +8,16 @@
 import Foundation
 
 protocol NetworkManager {
-    func sendRequest(request: Request, completion: @escaping (Result<Data, Error>) -> (Void))
+    func sendRequest(request: Request, completion: @escaping (Result<Data, RequestError>) -> (Void))
 }
 
 final class NetworkManagerImpl: NetworkManager {
-    func sendRequest(request: Request, completion: @escaping (Result<Data, Error>) -> (Void)) {
+    func sendRequest(request: Request, completion: @escaping (Result<Data, RequestError>) -> (Void)) {
         let dataTask = URLSession.shared.dataTask(with: request.urlRequest) { data, response, error in
-            if (response as? HTTPURLResponse)?.statusCode == 200 {
-                if let data {
-                    completion(.success(data))
-                }
-            } else if let error {
-                completion(.failure(error))
+            if (response as? HTTPURLResponse)?.statusCode == 200, let data {
+                completion(.success(data))
+            } else {
+                completion(.failure(.download))
             }
         }
         
