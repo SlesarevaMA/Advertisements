@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
 
 private enum Metrics {
     static let horizontalSpacing: CGFloat = 12
@@ -24,18 +25,14 @@ private enum Metrics {
     }
 }
 
-protocol Detail {
-    
-}
-
 protocol AdvertisementViewInput: AnyObject {
-    
+    func setModel(_ model: AdvertisementDetailModel)
+    func showAlert(title: String, completion: @escaping () -> Void)
 }
 
 final class AdvertisementViewController: UIViewController {
     
     private let output: AdvertisementViewOutput
-    private let advertisementService: AdvertisementService
     
     private var advertisementId = ""
     
@@ -49,9 +46,8 @@ final class AdvertisementViewController: UIViewController {
     private let phoneNumberLabel = UILabel()
     private let adressLabel = UILabel()
     
-    init(output: AdvertisementViewOutput, advertisementService: AdvertisementService) {
+    init(output: AdvertisementViewOutput) {
         self.output = output
-        self.advertisementService = advertisementService
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -62,10 +58,11 @@ final class AdvertisementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
+
+        output.viewDidLoad()
     }
-    
+        
     private func setup() {
         addSubviews()
         addConstraints()
@@ -160,10 +157,28 @@ final class AdvertisementViewController: UIViewController {
         adressLabel.textColor = Metrics.Color.mainText
         adressLabel.font = Metrics.Font.title
     }
+    
+    private func configure(with model: AdvertisementDetailModel) {
+        titleLabel.text = model.title
+        priceLabel.text = model.price
+        locationLabel.text = model.location
+        imageView.sd_setImage(with: model.imageUrl)
+        dateLabel.text = model.createdDate
+        descriptionLabel.text = model.description
+        emailLabel.text = model.email
+        phoneNumberLabel.text = model.phoneNumber
+        adressLabel.text = model.address
+    }
 }
 
-// MARK: - Detail
+// MARK: - AdvertisementViewInput
 
-extension AdvertisementViewController: Detail {
+extension AdvertisementViewController: AdvertisementViewInput {
+    func setModel(_ model: AdvertisementDetailModel) {
+        configure(with: model)
+    }
     
+    func showAlert(title: String, completion: @escaping () -> Void) {
+        
+    }
 }

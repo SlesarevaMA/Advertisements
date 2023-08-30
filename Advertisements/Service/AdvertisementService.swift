@@ -9,7 +9,7 @@ import Foundation
 
 protocol AdvertisementService {
     func requestAdvertisement(
-        advertisementId: String,
+        advertisementId: Int?,
         completion: @escaping (Result<AdvertisementDetailModel, RequestError>) -> Void
     )
 }
@@ -24,10 +24,10 @@ final class AdvertisementServiceImpl: AdvertisementService {
     }
     
     func requestAdvertisement(
-        advertisementId: String,
+        advertisementId: Int?,
         completion: @escaping (Result<AdvertisementDetailModel, RequestError>) -> Void
     ) {
-        let request = AdvertismentRequest(itemId: advertisementId)
+        let request = AdvertisementRequest(itemId: advertisementId)
         networkManager.sendRequest(request: request) { [weak self] result in
             
             guard let self else { return }

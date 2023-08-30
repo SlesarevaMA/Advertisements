@@ -18,6 +18,7 @@ final class AdvertisementListPresenter {
     
     private let advertisementListService: AdvertisementListService
     private let dataSource: AdvertisementListDataSource
+    private let router: AdvertisementsRouter
     
     private let inputDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -34,16 +35,21 @@ final class AdvertisementListPresenter {
         return formatter
     }()
     
-    init(advertisementListService: AdvertisementListService, dataSource: AdvertisementListDataSource) {
+    init(
+        advertisementListService: AdvertisementListService,
+        dataSource: AdvertisementListDataSource,
+        router: AdvertisementsRouter
+    ) {
         self.advertisementListService = advertisementListService
         self.dataSource = dataSource
+        self.router = router
     }
     
     private func setDataSource() {
         view?.setDataSource(dataSource)
     }
     
-    private func requestAdvertisemets() {
+    private func requestAdvertisements() {
         advertisementListService.requestAdvertismentList { [weak self] result in
             guard let self else { return }
             
@@ -94,7 +100,7 @@ final class AdvertisementListPresenter {
     private func handleError(_ error: RequestError) {
         DispatchQueue.main.async {
             self.view?.showAlert(title: error.description, completion: {
-                self.requestAdvertisemets()
+                self.requestAdvertisements()
             })
         }
     }
@@ -105,12 +111,11 @@ final class AdvertisementListPresenter {
 extension AdvertisementListPresenter: AdvertisementListViewOutput {
     func viewDidLoad() {
         setDataSource()
-        requestAdvertisemets()
+        requestAdvertisements()
     }
     
     func cellSelected(at index: Int) {
         let viewModel = dataSource.advertesementListViewModels[index]
-        print(viewModel.title)
+        router.showAdvertisementView(with: viewModel.id)
     }
-    
 }

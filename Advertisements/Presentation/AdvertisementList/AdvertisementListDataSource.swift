@@ -13,8 +13,6 @@ protocol AdvertisementListDataSource: UICollectionViewDataSource {
 
 final class AdvertisementListDataSourceImpl: NSObject {
     var advertesementListViewModels = [AdvertesementListViewModel]()
-    
-    /// общий дата соурс?
 }
 
 // MARK: - DataSource

@@ -10,6 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    private var router: AdvertisementsRouter?
 
     func scene(
         _ scene: UIScene,
@@ -18,17 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let networkManager = NetworkManagerImpl()
-        let decoder = AdvertisementsDecoder()
-        let service = AdvertisementListServiceImpl(networkManager: networkManager, decoder: decoder)
-        
-        let dataSource = AdvertisementListDataSourceImpl()
-        let presenter = AdvertisementListPresenter(advertisementListService: service, dataSource: dataSource)
-        let view = AdvertisementListViewController(output: presenter)
-        presenter.view = view
+        let factory = AdvertisementViewControllerFactoryImpl()
+        let navigationController = UINavigationController()
+        let router = AdvertisementsRouterImpl(factory: factory, navigationController: navigationController)
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = view
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        router.showAdvertisementListView()
     }
 }

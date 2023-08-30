@@ -23,8 +23,7 @@ protocol AdvertisementListViewInput: AnyObject {
 final class AdvertisementListViewController: UIViewController {
 
     private let output: AdvertisementListViewOutput
-    private var detail: Detail?
-    
+
     private let collectionViewLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     
