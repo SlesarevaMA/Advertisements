@@ -18,11 +18,6 @@ private enum Metrics {
         static let price: UIFont = .boldSystemFont(ofSize: 19)
         static let additional: UIFont = .systemFont(ofSize: 15)
     }
-    
-    enum Color {
-        static let additional: UIColor = .systemGray
-        static let mainText: UIColor = .white
-    }
 }
 
 final class AdretisementsListCell: UICollectionViewCell {
@@ -98,17 +93,17 @@ final class AdretisementsListCell: UICollectionViewCell {
         imageView.layer.cornerRadius = Metrics.cornerRadius
         imageView.layer.masksToBounds = true
 
-        titleLabel.textColor = Metrics.Color.mainText
+        titleLabel.textColor = .label
         titleLabel.font = Metrics.Font.title
         titleLabel.numberOfLines = 2
         
-        priceLabel.textColor = Metrics.Color.mainText
+        priceLabel.textColor = .label
         priceLabel.font = Metrics.Font.price
 
-        locationLabel.textColor = Metrics.Color.additional
+        locationLabel.textColor = .secondaryLabel
         locationLabel.font = Metrics.Font.additional
 
-        dateLabel.textColor = Metrics.Color.additional
+        dateLabel.textColor = .secondaryLabel
         dateLabel.font = Metrics.Font.additional
     }
 }

@@ -18,11 +18,6 @@ private enum Metrics {
         static let price: UIFont = .boldSystemFont(ofSize: 19)
         static let additional: UIFont = .systemFont(ofSize: 15)
     }
-    
-    enum Color {
-        static let additional: UIColor = .systemGray
-        static let mainText: UIColor = .white
-    }
 }
 
 protocol AdvertisementViewInput: AnyObject {
@@ -32,7 +27,10 @@ protocol AdvertisementViewInput: AnyObject {
 final class AdvertisementViewController: UIViewController {
     
     private let output: AdvertisementViewOutput
-        
+    
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    
     private let titleLabel = UILabel()
     private let priceLabel = UILabel()
     private let locationLabel = UILabel()
@@ -57,8 +55,8 @@ final class AdvertisementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
-
         output.viewDidLoad()
     }
         
@@ -69,16 +67,35 @@ final class AdvertisementViewController: UIViewController {
     }
     
     private func addSubviews() {
-        [titleLabel, priceLabel, locationLabel, imageView, dateLabel,
-         descriptionLabel, emailLabel, phoneNumberLabel, adressLabel]
-            .forEach { view.addSubview($0) }
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        [
+            titleLabel,
+            priceLabel,
+            locationLabel,
+            imageView,
+            dateLabel,
+            descriptionLabel,
+            emailLabel,
+            phoneNumberLabel,
+            adressLabel
+        ].forEach { contentView.addSubview($0) }
     }
     
     private func addConstraints() {
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
         imageView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalToSuperview()
-            $0.trailing.equalToSuperview()
+            $0.width.equalTo(view.bounds.width)
             $0.height.equalTo(imageView.snp.width)
         }
         
@@ -128,35 +145,34 @@ final class AdvertisementViewController: UIViewController {
             $0.leading.equalTo(priceLabel.snp.leading)
             $0.top.equalTo(phoneNumberLabel.snp.bottom).offset(Metrics.verticalSpacing)
             $0.trailing.lessThanOrEqualToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(Metrics.verticalSpacing)
+            $0.bottom.equalTo(contentView.safeAreaLayoutGuide.snp.bottom).inset(Metrics.verticalSpacing)
         }
     }
     
     private func configureViews() {
-        priceLabel.textColor = Metrics.Color.mainText
-        priceLabel.font = Metrics.Font.price
+        view.backgroundColor = .systemBackground
         
-        titleLabel.textColor = Metrics.Color.mainText
+        let additionalFont = Metrics.Font.additional
+        
+        priceLabel.font = Metrics.Font.price
         titleLabel.font = Metrics.Font.title
         
-        descriptionLabel.textColor = Metrics.Color.mainText
-        descriptionLabel.font = Metrics.Font.additional
+        descriptionLabel.font = additionalFont
         descriptionLabel.numberOfLines = 2
 
-        dateLabel.textColor = Metrics.Color.additional
+        dateLabel.textColor = .secondaryLabel
         dateLabel.font = Metrics.Font.title
         
-        locationLabel.textColor = Metrics.Color.additional
-        locationLabel.font = Metrics.Font.additional
+        locationLabel.textColor = .secondaryLabel
+        locationLabel.font = additionalFont
         
-        emailLabel.textColor = Metrics.Color.additional
-        emailLabel.font = Metrics.Font.additional
+        emailLabel.textColor = .secondaryLabel
+        emailLabel.font = additionalFont
 
-        phoneNumberLabel.textColor = Metrics.Color.mainText
-        phoneNumberLabel.font = Metrics.Font.additional
+        phoneNumberLabel.font = additionalFont
 
-        adressLabel.textColor = Metrics.Color.additional
-        adressLabel.font = Metrics.Font.additional
+        adressLabel.textColor = .secondaryLabel
+        adressLabel.font = additionalFont
     }
     
     private func configure(with model: AdvertisementDetailModel) {

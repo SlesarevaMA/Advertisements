@@ -12,33 +12,28 @@ protocol DateConverter {
 }
 
 final class DateConverterImpl: DateConverter {
-    private let inputDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+    private let inputDateFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = .withFullDate
         
         return formatter
     }()
     
     private let outputDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMM"
-        formatter.locale = Locale(identifier: "ru_RUS")
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.doesRelativeDateFormatting = true
+        formatter.locale = Locale(identifier: "ru_RU")
         
         return formatter
     }()
     
     func convertedDate(string: String) -> String {
-        guard let date = self.inputDateFormatter.date(from: string) else {
+        guard let date = inputDateFormatter.date(from: string) else {
             return ""
         }
         
-        switch date {
-        case Date():
-            return "Сегодня"
-        case Calendar.current.date(byAdding: .day, value: -1, to: Date()):
-            return "Вчера"
-        default:
-            return outputDateFormatter.string(from: date)
-        }
+        return outputDateFormatter.string(from: date)
     }
 }

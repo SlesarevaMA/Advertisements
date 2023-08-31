@@ -67,9 +67,10 @@ final class AdvertisementListViewController: UIViewController {
     
     private func prepareCollectionView() {
         view.addSubview(collectionView)
+        
         collectionView.delegate = self
         collectionView.register(cell: AdretisementsListCell.self)
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = .systemBackground
     }
     
     private func prepareCollectionViewLayout() {
