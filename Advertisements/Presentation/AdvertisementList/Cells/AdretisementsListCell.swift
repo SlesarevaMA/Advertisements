@@ -92,6 +92,7 @@ final class AdretisementsListCell: UICollectionViewCell {
     private func configureViews() {
         imageView.layer.cornerRadius = Metrics.cornerRadius
         imageView.layer.masksToBounds = true
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
 
         titleLabel.textColor = .label
         titleLabel.font = Metrics.Font.title

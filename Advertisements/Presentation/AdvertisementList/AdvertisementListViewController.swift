@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SkeletonView
 
 private enum Constants {
     static let columnsNumber: CGFloat = 2
@@ -26,7 +27,7 @@ final class AdvertisementListViewController: UIViewController {
     private let collectionViewLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     
-    private let progressView = UIActivityIndicatorView()
+    private let activityIndicator = UIActivityIndicatorView()
     
     init(output: AdvertisementListViewOutput) {
         self.output = output
@@ -41,10 +42,7 @@ final class AdvertisementListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
-        
-        view.addSubview(progressView)
-        progressView.startAnimating()
+        setupSubviews()
         output.viewDidLoad()
     }
     
@@ -60,12 +58,18 @@ final class AdvertisementListViewController: UIViewController {
         prepareCollectionViewLayout()
     }
     
-    private func setup() {
-        prepareCollectionView()
+    private func setupSubviews() {
+        setupCollectionView()
+        setupActivityIndicator()
         addConstraints()
     }
     
-    private func prepareCollectionView() {
+    private func setupActivityIndicator() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    private func setupCollectionView() {
         view.addSubview(collectionView)
         
         collectionView.delegate = self
@@ -107,5 +111,6 @@ extension AdvertisementListViewController: UICollectionViewDelegate {
     
     func reloadData() {
         collectionView.reloadData()
+        activityIndicator.stopAnimating()
     }
 }

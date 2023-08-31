@@ -20,8 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let factory = AdvertisementViewControllerFactoryImpl()
+        UINavigationBar.appearance().tintColor = .label
         let navigationController = UINavigationController()
+        let factory = AdvertisementViewControllerFactoryImpl()
         let router = AdvertisementsRouterImpl(factory: factory, navigationController: navigationController)
         
         window = UIWindow(windowScene: windowScene)

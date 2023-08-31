@@ -41,8 +41,6 @@ final class AdvertisementViewController: UIViewController {
     private let phoneNumberLabel = UILabel()
     private let adressLabel = UILabel()
     
-    private let progressView = UIActivityIndicatorView()
-    
     init(output: AdvertisementViewOutput) {
         self.output = output
         
@@ -151,6 +149,8 @@ final class AdvertisementViewController: UIViewController {
     
     private func configureViews() {
         view.backgroundColor = .systemBackground
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
+        imageView.sd_imageIndicator?.startAnimatingIndicator()
         
         let additionalFont = Metrics.Font.additional
         
