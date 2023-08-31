@@ -42,12 +42,12 @@ final class AdretisementsListCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: AdvertesementListViewModel) {
+    func configure(with model: AdvertisementListModel) {
         imageView.sd_setImage(with: model.imageUrl)
         titleLabel.text = model.title
         priceLabel.text = model.price
         locationLabel.text = model.location
-        dateLabel.text = model.date
+        dateLabel.text = model.createdDate
     }
     
     private func setup() {

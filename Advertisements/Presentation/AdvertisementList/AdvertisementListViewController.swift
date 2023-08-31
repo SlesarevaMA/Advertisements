@@ -17,7 +17,6 @@ private enum Constants {
 protocol AdvertisementListViewInput: AnyObject {
     func setDataSource(_ dataSource: AdvertisementListDataSource)
     func reloadData()
-    func showAlert(title: String, completion: @escaping () -> Void)
 }
 
 final class AdvertisementListViewController: UIViewController {
@@ -91,16 +90,6 @@ final class AdvertisementListViewController: UIViewController {
 extension AdvertisementListViewController: AdvertisementListViewInput {
     func setDataSource(_ dataSource: AdvertisementListDataSource) {
         collectionView.dataSource = dataSource
-    }
-    
-    func showAlert(title: String, completion: @escaping () -> Void) {
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Попробуйте ещё", style: .default) { _ in
-            completion()
-        }
-        
-        alert.addAction(action)
-        present(alert, animated: true)
     }
 }
 

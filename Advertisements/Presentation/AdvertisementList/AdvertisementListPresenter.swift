@@ -19,30 +19,18 @@ final class AdvertisementListPresenter {
     private let advertisementListService: AdvertisementListService
     private let dataSource: AdvertisementListDataSource
     private let router: AdvertisementsRouter
-    
-    private let inputDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+    private let dateConverter: DateConverter
         
-        return formatter
-    }()
-    
-    private let outputDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "d MMM"
-        formatter.locale = Locale(identifier: "ru_RUS")
-        
-        return formatter
-    }()
-    
     init(
         advertisementListService: AdvertisementListService,
         dataSource: AdvertisementListDataSource,
-        router: AdvertisementsRouter
+        router: AdvertisementsRouter,
+        dateConverter: DateConverter
     ) {
         self.advertisementListService = advertisementListService
         self.dataSource = dataSource
         self.router = router
+        self.dateConverter = dateConverter
     }
     
     private func setDataSource() {
@@ -64,15 +52,15 @@ final class AdvertisementListPresenter {
     
     private func processAdverisements(_ adverisements: [AdvertisementListModel]) {
         let viewModels = adverisements.map { model in
-            let date = self.convertedDate(string: model.createdDate)
+            let date = self.dateConverter.convertedDate(string: model.createdDate)
             
-            return AdvertesementListViewModel(
-                id: Int(model.id) ?? -1,
+            return AdvertisementListModel(
+                id: model.id,
                 title: model.title,
                 price: model.price,
                 location: model.location,
                 imageUrl: model.imageUrl,
-                date: date
+                createdDate: date
             )
         }
         
@@ -82,24 +70,9 @@ final class AdvertisementListPresenter {
         }
     }
     
-    private func convertedDate(string: String) -> String {
-        guard let date = self.inputDateFormatter.date(from: string) else {
-            return ""
-        }
-        
-        switch date {
-        case Date():
-            return "Сегодня"
-        case Calendar.current.date(byAdding: .day, value: -1, to: Date()):
-            return "Вчера"
-        default:
-            return outputDateFormatter.string(from: date)
-        }
-    }
-    
     private func handleError(_ error: RequestError) {
         DispatchQueue.main.async {
-            self.view?.showAlert(title: error.description, completion: {
+            self.router.showAlert(title: error.description, completion: {
                 self.requestAdvertisements()
             })
         }
@@ -116,6 +89,6 @@ extension AdvertisementListPresenter: AdvertisementListViewOutput {
     
     func cellSelected(at index: Int) {
         let viewModel = dataSource.advertesementListViewModels[index]
-        router.showAdvertisementView(with: viewModel.id)
+        router.showAdvertisementView(with: Int(viewModel.id) ?? -1)
     }
 }

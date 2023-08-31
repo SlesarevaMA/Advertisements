@@ -9,7 +9,7 @@ import Foundation
 
 protocol AdvertisementService {
     func requestAdvertisement(
-        advertisementId: Int?,
+        advertisementId: Int,
         completion: @escaping (Result<AdvertisementDetailModel, RequestError>) -> Void
     )
 }
@@ -24,7 +24,7 @@ final class AdvertisementServiceImpl: AdvertisementService {
     }
     
     func requestAdvertisement(
-        advertisementId: Int?,
+        advertisementId: Int,
         completion: @escaping (Result<AdvertisementDetailModel, RequestError>) -> Void
     ) {
         let request = AdvertisementRequest(itemId: advertisementId)

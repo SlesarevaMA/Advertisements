@@ -8,11 +8,11 @@
 import UIKit
 
 protocol AdvertisementListDataSource: UICollectionViewDataSource {
-    var advertesementListViewModels: [AdvertesementListViewModel] { get set }
+    var advertesementListViewModels: [AdvertisementListModel] { get set }
 }
 
 final class AdvertisementListDataSourceImpl: NSObject {
-    var advertesementListViewModels = [AdvertesementListViewModel]()
+    var advertesementListViewModels = [AdvertisementListModel]()
 }
 
 // MARK: - DataSource

@@ -10,6 +10,7 @@ import UIKit
 protocol AdvertisementsRouter: AnyObject {
     func showAdvertisementListView()
     func showAdvertisementView(with id: Int)
+    func showAlert(title: String, completion: @escaping () -> Void)
 }
 
 final class AdvertisementsRouterImpl: AdvertisementsRouter {
@@ -28,12 +29,18 @@ final class AdvertisementsRouterImpl: AdvertisementsRouter {
     }
     
     func showAdvertisementView(with id: Int) {
-        let (view, presenter) = factory.makeAdvetisementViewController()
+        let (view, presenter) = factory.makeAdvetisementViewController(router: self)
         presenter.configure(with: id)
         navigationController.pushViewController(view, animated: true)
     }
     
-    func showAlert() {
+    func showAlert(title: String, completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Попробуйте ещё", style: .default) { _ in
+            completion()
+        }
         
+        alert.addAction(action)
+        navigationController.topViewController?.present(alert, animated: true)
     }
 }

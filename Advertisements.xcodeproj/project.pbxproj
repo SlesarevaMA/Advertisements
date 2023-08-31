@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB6635A42AA0F19000553FB8 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6635A32AA0F19000553FB8 /* DateConverter.swift */; };
 		AB80613A2A9E1DA5004E2157 /* AdvertisementPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8061392A9E1DA5004E2157 /* AdvertisementPresenter.swift */; };
 		AB80613C2A9E1EF7004E2157 /* AdvertisementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB80613B2A9E1EF7004E2157 /* AdvertisementService.swift */; };
 		AB80613F2A9E1FA3004E2157 /* AdvertisementDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB80613E2A9E1FA3004E2157 /* AdvertisementDetailModel.swift */; };
@@ -32,7 +33,6 @@
 		ABB398EF2A9B7120000C81D8 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398EE2A9B7120000C81D8 /* Identifiable.swift */; };
 		ABB398F12A9B7279000C81D8 /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398F02A9B7279000C81D8 /* UICollectionViewCell+.swift */; };
 		ABB398F32A9B72BC000C81D8 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398F22A9B72BC000C81D8 /* UICollectionView+.swift */; };
-		ABB398F52A9BAAAE000C81D8 /* AdvertesementListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398F42A9BAAAE000C81D8 /* AdvertesementListViewModel.swift */; };
 		ABB398F82A9BB32D000C81D8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = ABB398F72A9BB32D000C81D8 /* SDWebImage */; };
 		ABB398FB2A9BB3BB000C81D8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ABB398FA2A9BB3BB000C81D8 /* SnapKit */; };
 		ABB399002A9D0529000C81D8 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB398FF2A9D0529000C81D8 /* RequestError.swift */; };
@@ -40,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB6635A32AA0F19000553FB8 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		AB8061392A9E1DA5004E2157 /* AdvertisementPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementPresenter.swift; sourceTree = "<group>"; };
 		AB80613B2A9E1EF7004E2157 /* AdvertisementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementService.swift; sourceTree = "<group>"; };
 		AB80613E2A9E1FA3004E2157 /* AdvertisementDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementDetailModel.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		ABB398EE2A9B7120000C81D8 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		ABB398F02A9B7279000C81D8 /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		ABB398F22A9B72BC000C81D8 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
-		ABB398F42A9BAAAE000C81D8 /* AdvertesementListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertesementListViewModel.swift; sourceTree = "<group>"; };
 		ABB398FF2A9D0529000C81D8 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		ABB399022A9DDF78000C81D8 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +151,7 @@
 				AB8061402A9E60BE004E2157 /* Common */,
 				ABB399012A9DDF0B000C81D8 /* Advertisement */,
 				ABB398FE2A9CBE40000C81D8 /* AdvertisementList */,
+				AB6635A32AA0F19000553FB8 /* DateConverter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -219,7 +220,6 @@
 				ABB398C02A97DC7A000C81D8 /* AdvertisementListViewController.swift */,
 				ABB398E62A9B63D3000C81D8 /* AdvertisementListPresenter.swift */,
 				ABB398E82A9B6496000C81D8 /* AdvertisementListDataSource.swift */,
-				ABB398F42A9BAAAE000C81D8 /* AdvertesementListViewModel.swift */,
 			);
 			path = AdvertisementList;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 			files = (
 				AB8061442A9E82EF004E2157 /* AdvertisementViewControllerFactory.swift in Sources */,
 				ABB399032A9DDF78000C81D8 /* AdvertisementViewController.swift in Sources */,
-				ABB398F52A9BAAAE000C81D8 /* AdvertesementListViewModel.swift in Sources */,
+				AB6635A42AA0F19000553FB8 /* DateConverter.swift in Sources */,
 				AB8061422A9E60D0004E2157 /* UIEdgeInsets+.swift in Sources */,
 				ABB398D52A97E22A000C81D8 /* NetworkManager.swift in Sources */,
 				AB80613C2A9E1EF7004E2157 /* AdvertisementService.swift in Sources */,

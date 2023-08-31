@@ -27,15 +27,12 @@ private enum Metrics {
 
 protocol AdvertisementViewInput: AnyObject {
     func setModel(_ model: AdvertisementDetailModel)
-    func showAlert(title: String, completion: @escaping () -> Void)
 }
 
 final class AdvertisementViewController: UIViewController {
     
     private let output: AdvertisementViewOutput
-    
-    private var advertisementId = ""
-    
+        
     private let titleLabel = UILabel()
     private let priceLabel = UILabel()
     private let locationLabel = UILabel()
@@ -80,6 +77,7 @@ final class AdvertisementViewController: UIViewController {
             $0.leading.equalToSuperview()
             $0.top.equalToSuperview()
             $0.trailing.equalToSuperview()
+            $0.height.equalTo(imageView.snp.width)
         }
         
         priceLabel.snp.makeConstraints {
@@ -128,34 +126,35 @@ final class AdvertisementViewController: UIViewController {
             $0.leading.equalTo(priceLabel.snp.leading)
             $0.top.equalTo(phoneNumberLabel.snp.bottom).offset(Metrics.verticalSpacing)
             $0.trailing.lessThanOrEqualToSuperview()
-            $0.bottom.equalToSuperview().offset(Metrics.verticalSpacing)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(Metrics.verticalSpacing)
         }
     }
     
     private func configureViews() {
         priceLabel.textColor = Metrics.Color.mainText
-        priceLabel.font = Metrics.Font.title
+        priceLabel.font = Metrics.Font.price
         
         titleLabel.textColor = Metrics.Color.mainText
         titleLabel.font = Metrics.Font.title
         
         descriptionLabel.textColor = Metrics.Color.mainText
-        descriptionLabel.font = Metrics.Font.title
+        descriptionLabel.font = Metrics.Font.additional
+        descriptionLabel.numberOfLines = 2
 
-        dateLabel.textColor = Metrics.Color.mainText
+        dateLabel.textColor = Metrics.Color.additional
         dateLabel.font = Metrics.Font.title
         
-        locationLabel.textColor = Metrics.Color.mainText
-        locationLabel.font = Metrics.Font.title
+        locationLabel.textColor = Metrics.Color.additional
+        locationLabel.font = Metrics.Font.additional
         
-        emailLabel.textColor = Metrics.Color.mainText
-        emailLabel.font = Metrics.Font.title
+        emailLabel.textColor = Metrics.Color.additional
+        emailLabel.font = Metrics.Font.additional
 
         phoneNumberLabel.textColor = Metrics.Color.mainText
-        phoneNumberLabel.font = Metrics.Font.title
+        phoneNumberLabel.font = Metrics.Font.additional
 
-        adressLabel.textColor = Metrics.Color.mainText
-        adressLabel.font = Metrics.Font.title
+        adressLabel.textColor = Metrics.Color.additional
+        adressLabel.font = Metrics.Font.additional
     }
     
     private func configure(with model: AdvertisementDetailModel) {
@@ -176,9 +175,5 @@ final class AdvertisementViewController: UIViewController {
 extension AdvertisementViewController: AdvertisementViewInput {
     func setModel(_ model: AdvertisementDetailModel) {
         configure(with: model)
-    }
-    
-    func showAlert(title: String, completion: @escaping () -> Void) {
-        
     }
 }
