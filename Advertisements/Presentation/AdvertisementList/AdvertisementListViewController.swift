@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import SkeletonView
 
 private enum Constants {
     static let columnsNumber: CGFloat = 2
