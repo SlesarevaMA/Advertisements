@@ -26,6 +26,8 @@ final class AdvertisementListViewController: UIViewController {
     private let collectionViewLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     
+    private let progressView = UIActivityIndicatorView()
+    
     init(output: AdvertisementListViewOutput) {
         self.output = output
         
@@ -40,6 +42,9 @@ final class AdvertisementListViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        
+        view.addSubview(progressView)
+        progressView.startAnimating()
         output.viewDidLoad()
     }
     

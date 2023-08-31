@@ -43,6 +43,8 @@ final class AdvertisementViewController: UIViewController {
     private let phoneNumberLabel = UILabel()
     private let adressLabel = UILabel()
     
+    private let progressView = UIActivityIndicatorView()
+    
     init(output: AdvertisementViewOutput) {
         self.output = output
         
